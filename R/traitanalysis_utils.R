@@ -1035,9 +1035,9 @@ compute.prevalence <- function(feature_matrix, type, idcol = "id") {
   }
 
   if(type == "trait_matrixatgranularity3") {
-    prevalence = trait_matrix %>% tibble::as_tibble() %>%
+    prevalence = feature_matrix %>% tibble::as_tibble() %>%
       dplyr::select(c(idcol,
-                      intersect(colnames(trait_matrix),
+                      intersect(colnames(feature_matrix),
                                 traits_listbygranularity[[3]] %>%
                                   #dplyr::filter(`microtrait_trait-type` == "binary") %>%
                                   dplyr::pull(`microtrait_trait-name`)))) %>%
