@@ -36,7 +36,7 @@ run.hmmsearch <- function(faa_file = system.file("extdata", "2619619645.genes.fa
                     #"microtrait" = file.path("/Users/ukaraoz/Work/microtrait/code/microtrait", "inst/extdata/hmm/hmmpress/microtrait.hmmdb"),
                     #"dbcan" = file.path("/Users/ukaraoz/Work/microtrait/code/microtrait", "inst/extdata/hmm/hmmpress/dbcan.select.v8.hmmdb")
                     "microtrait" = file.path(system.file(package="microtrait"), "extdata/hmm/hmmpress/microtrait.hmmdb"),
-                    "dbcan" = file.path(system.file(package="microtrait"), "extdata/hmm/hmmpress/dbcan.select.v8.hmmdb"),
+                    "dbcan" = file.path(system.file(package="microtrait"), "extdata/hmm/hmmpress/dbcan.select.v14.hmmdb"),
                     "ribosomal" = file.path(system.file(package="microtrait"), "extdata/hmm/hmmpress/arcbacribosomal.hmmdb")
   )
   #hmmsearch --cpu $ncpus --domtblout $faafile".microtrait.domtblout" $hmm $faafile > /dev/null
