@@ -156,11 +156,11 @@ run.prodigal <- function(genome_file = system.file("extdata/examples/2619619645/
   )
 
   mode = tryCatch({
-    assertthat::assert_that(mode %in% c("single", "meta"))
+    assertthat::assert_that(mode %in% c("single", "meta", "anon"))
     mode
   },
   error = function(e) {
-    message("Mode has to be either `single` or `meta`.")
+    message("Mode has to be either `single`, `meta` or `anon`.")
     print(e)
   }
   )

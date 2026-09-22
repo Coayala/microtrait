@@ -22,6 +22,7 @@
 extract.traits <- function(in_file = system.file("extdata/genomic", "2695420375.fna", package = "microtrait", mustWork = TRUE),
                            out_dir = system.file("extdata/genomic", package = "microtrait", mustWork = TRUE),
                            type = "genomic", mode = "single",
+                           n_threads = 1,
                            growthrate_predict = TRUE, optimalT_predict = TRUE, optimalT_predict_wtRNA = FALSE,
                            save_tempfiles = F) {
   result <- c(call = match.call())
@@ -94,8 +95,8 @@ extract.traits <- function(in_file = system.file("extdata/genomic", "2695420375.
       return(returnList)
     } else {
       tictoc::tic("run.hmmsearch")
-      microtrait_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "microtrait")
-      dbcan_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "dbcan")
+      microtrait_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "microtrait", n_threads = n_threads)
+      dbcan_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "dbcan", n_threads = n_threads)
       #ribosomal_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "ribosomal")
       tictoc::toc(log = "TRUE")
     }
@@ -108,8 +109,8 @@ extract.traits <- function(in_file = system.file("extdata/genomic", "2695420375.
     genome_length = NA
     nseq = countseq.fasta(proteins_file)
     tictoc::tic("run.hmmsearch")
-    microtrait_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "microtrait")
-    dbcan_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "dbcan")
+    microtrait_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "microtrait", n_threads = n_threads)
+    dbcan_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "dbcan", n_threads = n_threads)
     #ribosomal_domtblout_file = run.hmmsearch(faa_file = proteins_file, hmm = "ribosomal")
     tictoc::toc(log = "TRUE")
   }
